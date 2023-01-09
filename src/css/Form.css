@@ -1,0 +1,36 @@
+.form-control{
+    width: auto;
+    margin-bottom: 5px;
+}
+
+form{
+    width: 400px;
+    padding: 40px 30px 0 30px;
+    border: 2px solid black;
+    box-shadow: 7px 13px 37px #000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 30px auto 30px auto;
+    background-color: #212529;
+}
+
+form h2{
+    font-size: 28px;
+    color: white;
+}
+
+form .container{
+    padding: 30px 0 61px 0;
+}
+
+.form-label{
+    color: white;
+}
+
+.confirmarDatos{
+    margin-top: 20px;
+}
+
+.row{
+    margin-left: 0;
+    --bs-gutter-x: 0;
+}

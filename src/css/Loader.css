@@ -1,0 +1,21 @@
+.imgLoader{
+    width: 100%;
+}
+
+.div{
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("https://previews.123rf.com/images/denysmagic/denysmagic2006/denysmagic200600068/149690033-logotipo-de-burger-house-plantilla-de-logotipo-de-dise%C3%B1o-plano-moderno-para-restaurante-de-hamburgue.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+}
+
+.div h2{
+    padding-top: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 0 0 5px #ffc107;
+}
+
+.div a{
+    margin-top: 455px;
+}

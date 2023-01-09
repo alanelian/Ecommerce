@@ -6,3 +6,11 @@
     display: flex; 
     justify-content: center;
 }
+
+.compra{
+    text-align: center;
+}
+
+.compra a{
+    margin-bottom: 5px;
+}

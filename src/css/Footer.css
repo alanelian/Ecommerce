@@ -1,0 +1,25 @@
+footer{
+    text-align: center;
+}
+
+footer p{
+    font-size: 20px;
+}
+
+.redes i{
+    color: bisque;
+    font-size: 35px;
+    padding-left: 20px;
+}
+
+.redes i:hover{
+    color: black;
+}
+
+footer span{
+    color: black;
+}
+
+footer .container{
+    padding: 20px 0 20px 0;
+}
