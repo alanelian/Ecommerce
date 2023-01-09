@@ -27,7 +27,6 @@ const Checkout = () =>{
         const db = getFirestore();
         const orderCollectionRef = collection(db, 'orders')
         addDoc(orderCollectionRef, order)
-            .then(({ id }) => console.log(id))
             limpiarCarrito();
     }
 
