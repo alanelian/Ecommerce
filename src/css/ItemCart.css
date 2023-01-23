@@ -1,9 +1,10 @@
 .itemCart{
     display: flex;
-    border-bottom: 1px solid gray;
+    border: 1px solid gray;
     max-width: 1000px;
     margin: 1rem auto;
-    padding: 50px 0 10px 0;
+    padding: 10px 0 10px 0;
+    box-shadow: 7px 13px 37px #000;;
 }
 
 .itemCart img{
@@ -22,9 +23,13 @@
 .buttonsCart{
     max-width: 1000px;
     margin: 1rem auto 3.3rem auto;
-    padding: 9px 0 10px 0;
+    padding: 9px 0 36px 0;
 }
 
 .finalizar{
     margin-right: 10px;
+}
+
+.containerCart{
+    border: 5px solid #dc3545;
 }

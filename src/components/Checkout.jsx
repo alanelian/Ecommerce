@@ -7,8 +7,7 @@ import '../css/Checkout.css'
 import LoaderOrderBuy from './LoaderOrderBuy';
 
 const Checkout = () =>{
-
-    const { carrito, precioTotal, limpiarCarrito } = useContext(CartContext)
+    const { cart, totalPrice, clearCart } = useContext(CartContext)
     const [personalData, setPersonalData] = useState(false)
     const [infoBuyer, setDatosCompra] = useState({})
 
@@ -19,21 +18,21 @@ const Checkout = () =>{
 
     const order = {
         buyer: infoBuyer,
-        items: carrito,
-        total: precioTotal()
+        items: cart,
+        total: totalPrice(),
+        date: new Date()
     }
 
     const handleClick = () =>{
         const db = getFirestore();
         const orderCollectionRef = collection(db, 'orders')
         addDoc(orderCollectionRef, order)
-            limpiarCarrito();
+            clearCart();
     }
-
     return(
         <>
         {
-            carrito.length === 0 ? <LoaderOrderBuy/>
+            cart.length === 0 ? <LoaderOrderBuy/>
             :
             <>
             <h1 className='text-center'>Checkout</h1>

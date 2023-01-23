@@ -1,12 +1,14 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import ItemListContainer from "./components/ItemListContainer";
-import ItemDetailContainer from "./components/ItemDetailContainer";
 import CartProvider from "./context/CartProvider";
 import Cart from "./components/Cart"
 import Footer from "./components/Footer";
 import Checkout from "./components/Checkout";
+import Category from './components/Category'
 import './App.css' 
+import ItemList from './components/ItemList'
+import ItemDetail from "./components/ItemDetail";
+
 
 function App() {
   return (
@@ -15,10 +17,10 @@ function App() {
     <CartProvider>
     <NavBar/>
       <Routes>
-        <Route exact path="/" element={<ItemListContainer/>}/>
-        <Route path="/categoria" element={<ItemListContainer/>}/>
-        <Route path="categoria/:categoriaId" element={<ItemListContainer/>}/>
-        <Route path="/detalle/:detalleId" element={<ItemDetailContainer/>}/>
+        <Route exact path="/" element={<ItemList/>}/>
+        <Route path="/category" element={<ItemList/>}/>
+        <Route path="/category/:id" element={<Category />} />
+        <Route path="/product/:id" element={<ItemDetail/>}/>
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/checkout" element={<Checkout/>}></Route>
       </Routes>

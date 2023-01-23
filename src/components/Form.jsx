@@ -3,7 +3,6 @@ import Swal from "sweetalert2";
 import '../css/Form.css'
 
 const Form = ({ completoDatos }) => {
-
     const [name, setName] = useState("");
     const [apellido, setApellido] = useState("");
     const [email, setEmail] = useState("");
@@ -12,26 +11,37 @@ const Form = ({ completoDatos }) => {
     const [localidad, setLocalidad] = useState("");
     const [direccion, setDireccion] = useState("");
 
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-right',
+        iconColor: 'white',
+        customClass: {
+            popup: 'colored-toast'
+        },
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        background: "#dc3545",
+        color: "white"
+    })
+
     const validate = (event) => {
         event.preventDefault()
         if (!name || !telefono || !email || !emailConfirm || !localidad || !direccion || !apellido) {
-            Swal.fire({title:'Error', 
-            text:'Completa datos', 
-            icon:'error', timer:2000, 
-            showConfirmButton: false})
+            Toast.fire({
+                icon: 'warning',
+                title: 'Complete los datos'
+            })
         } else if (email !== emailConfirm) {
-            Swal.fire({
-                title:'Email incorrecto',
-                text:'Los email no coinciden',
-                icon:'question',
-                timer:2000,
-                showConfirmButton: false,
-        })
+            Toast.fire({
+                icon: 'question',
+                title: 'Los email no coinciden',
+                background: "#87adbd"
+            })
         } else {
             completoDatos(name, telefono, email, emailConfirm, localidad, direccion, apellido)
         }
     }
-
     return (
         <form>
             <h2>Complete los datos para generar la orden de compra</h2>

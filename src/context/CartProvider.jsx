@@ -3,24 +3,31 @@ import CartContext from "./CartContext";
 
 const CartProvider = ({children}) => {
 
-    const [carrito, setCarrito] = useState([]);
+    const [cart, setCart] = useState([]);
 
-    const limpiarCarrito = () => setCarrito([]);
+    const clearCart = () => setCart([]);
 
-    const eliminarProducto = (id) => setCarrito(carrito.filter(producto => producto.id !== id));
+    const deleteProduct = (id) => setCart(cart.filter(product => product.id !== id));
 
-    const agregarProducto = (producto, newQuantity) => {
-        const newCarrito = carrito.filter((prod) => prod.id !== producto.id);
-        newCarrito.push({...producto, quantity: newQuantity});
-        setCarrito(newCarrito);
+    const isInCart = (id) => {
+        cart.some(product => product.id === id);
+    }
+    const addProduct = (product, quantity) => {
+        if(isInCart(product.id)){
+            setCart(cart.map(item => {
+                return item.id === product.id ? { ...product, quantity: product.quantity + quantity } : product
+            }));
+        } else {
+            setCart([...cart, {...product, quantity}])
+        }
     }
 
-    const precioTotal = () => {
-        return carrito.reduce((acumulador,precioTotal) => acumulador + precioTotal.quantity * precioTotal.precio,0)
+    const totalPrice = () => {
+        return cart.reduce((acumulador,totalPrice) => acumulador + totalPrice.quantity * totalPrice.precio,0)
     }
 
-    const productosTotal = () => {
-        return carrito.reduce ((acumulador1,productoActual) => acumulador1 + productoActual.quantity,0)
+    const totalProducts = () => {
+        return cart.reduce ((acumulador,productAcu) => acumulador + productAcu.quantity,0)
     }
 
     const [name, setName] = useState("");
@@ -33,12 +40,12 @@ const CartProvider = ({children}) => {
 
     return(
         <CartContext.Provider value={{
-            limpiarCarrito,
-            eliminarProducto,
-            agregarProducto,
-            precioTotal,
-            productosTotal,
-            carrito,
+            clearCart,
+            deleteProduct,
+            addProduct,
+            totalPrice,
+            totalProducts,
+            cart,
             setName,
             setApellido,
             setEmail,
@@ -53,7 +60,7 @@ const CartProvider = ({children}) => {
             telefono,
             localidad,
             direccion,
-            setCarrito,
+            setCart,
         }}>
             {children}
         </CartContext.Provider>
